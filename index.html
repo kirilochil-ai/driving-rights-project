@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Симулятор тестів ПДР МВС</title>
+    <link rel="stylesheet" href="style.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen">
+            <div class="start-box">
+                <h1>Симулятор Іспиту ПДР</h1>
+                <p>Як у сервісному центрі МВС</p>
+                
+                <div class="stats-box" id="stats-box">
+                    <h3>Статистика проходження</h3>
+                    <p>Опрацьовано питань: <span id="stats-count">0</span> / <span id="stats-total">0</span></p>
+                    <button id="reset-stats-btn" class="tertiary-btn">Скинути статистику</button>
+                </div>
+
+                <div class="user-profile">
+                    <p class="fixed-name">Романов Кирило Олександрович</p>
+                    <p class="fixed-date">02.07.2008</p>
+                </div>
+                <button id="start-btn" class="primary-btn">Почати іспит</button>
+                <button id="study-btn" class="secondary-btn" style="margin-top: 10px; width: 100%; box-sizing: border-box;">Вчити за розділами</button>
+            </div>
+        </div>
+
+        <!-- Section Selection Screen -->
+        <div id="section-screen" class="screen hidden">
+            <div class="start-box" style="max-width: 600px; width: 90%;">
+                <h1>Оберіть розділ</h1>
+                <div id="sections-grid" class="sections-grid">
+                    <!-- Sections will be injected here -->
+                </div>
+                <button id="back-to-start-btn" class="tertiary-btn" style="margin-top: 20px;">Назад</button>
+            </div>
+        </div>
+
+        <!-- Exam Screen -->
+        <div id="exam-screen" class="screen hidden">
+            <div class="top-bar">
+                <div class="user-info">
+                    <div class="label">Здає іспит</div>
+                    <div class="name" id="display-name"></div>
+                </div>
+                <div class="exam-stats">
+                    <div class="errors-box">
+                        <div class="label">Помилок</div>
+                        <div class="errors-display" id="errors-display">0 / 2</div>
+                    </div>
+                    <div class="timer-box">
+                        <div class="label">Залишилось часу</div>
+                        <div class="timer-display" id="timer">20:00</div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="time-progress"></div>
+                        </div>
+                    </div>
+                    <button id="exit-exam-btn" class="tertiary-btn" style="align-self: center; margin-left: 20px;">Головне меню</button>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div class="question-header">
+                    <div class="question-text-wrapper">
+                        <img id="question-image" class="question-image" src="" alt="Question Image">
+                        <div class="question-text" id="question-text">Завантаження...</div>
+                    </div>
+                    <div class="question-number-badge" id="current-q-badge">1</div>
+                </div>
+                <div class="options-container" id="options-container">
+                    <!-- Options injected here -->
+                </div>
+                <div class="action-bar">
+                    <button id="prev-btn" class="secondary-btn" disabled>Попереднє питання</button>
+                    <button id="next-btn" class="secondary-btn" disabled>Наступне питання</button>
+                </div>
+            </div>
+
+            <div class="bottom-bar">
+                <div class="pagination" id="pagination">
+                    <!-- Pagination injected here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen hidden">
+            <div class="result-box">
+                <h1 id="result-title">Іспит завершено</h1>
+                <p id="result-details"></p>
+                <button id="restart-btn" class="primary-btn">Спробувати знову</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js?v=3"></script>
+</body>
+</html>
